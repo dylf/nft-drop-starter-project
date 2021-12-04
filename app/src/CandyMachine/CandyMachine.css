@@ -1,4 +1,4 @@
-.machine-container {
+.minted-container {
   display: flex;
   flex-direction: column;
 }
@@ -10,7 +10,7 @@
 
 .gif-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
   grid-gap: 1.5rem;
   justify-items: center;
   margin: 0;
@@ -29,5 +29,95 @@
   width: 100%;
   height: 200px;
   border-radius: 10px;
-  object-fit: cover;
+  object-fit: contain;
+}
+
+.loading-container {
+  display: flex;
+  position: relative;
+  /* justify-content: center; */
+  /* align-items: center; */
+  margin: 10px auto;
+}
+
+/**
+ * ==============================================
+ * Dot Pulse
+ * ==============================================
+ */
+.dot-pulse {
+  position: absolute;
+  left: -9999px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #d4ce46;
+  color: #d4ce46;
+  box-shadow: 9999px 0 0 -5px #d4ce46;
+  animation: dotPulse 1.5s infinite linear;
+  animation-delay: 0.25s;
+}
+
+.dot-pulse::before,
+.dot-pulse::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #d4ce46;
+  color: #d4ce46;
+}
+
+.dot-pulse::before {
+  box-shadow: 9984px 0 0 -5px #d4ce46;
+  animation: dotPulseBefore 1.5s infinite linear;
+  animation-delay: 0s;
+}
+
+.dot-pulse::after {
+  box-shadow: 10014px 0 0 -5px #d4ce46;
+  animation: dotPulseAfter 1.5s infinite linear;
+  animation-delay: 0.5s;
+}
+
+@keyframes dotPulseBefore {
+  0% {
+    box-shadow: 9984px 0 0 -5px #d4ce46;
+  }
+  30% {
+    box-shadow: 9984px 0 0 2px #d4ce46;
+  }
+  60%,
+  100% {
+    box-shadow: 9984px 0 0 -5px #d4ce46;
+  }
+}
+
+@keyframes dotPulse {
+  0% {
+    box-shadow: 9999px 0 0 -5px #d4ce46;
+  }
+  30% {
+    box-shadow: 9999px 0 0 2px #d4ce46;
+  }
+  60%,
+  100% {
+    box-shadow: 9999px 0 0 -5px #d4ce46;
+  }
+}
+
+@keyframes dotPulseAfter {
+  0% {
+    box-shadow: 10014px 0 0 -5px #d4ce46;
+  }
+  30% {
+    box-shadow: 10014px 0 0 2px #d4ce46;
+  }
+  60%,
+  100% {
+    box-shadow: 10014px 0 0 -5px #d4ce46;
+  }
 }
